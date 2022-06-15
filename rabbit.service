@@ -1,0 +1,15 @@
+[Unit]
+Description = this is to keep rabbitMQ constantly running
+
+After=network-online.target
+
+[Service]
+Type = simple
+WorkingDirectory = /home/ubuntu/IT490/db
+ExecStart = php Consumer.php
+User = ubuntu
+Restart = always
+RestartSec = 10
+
+[Install]
+WantedBy = default.target
